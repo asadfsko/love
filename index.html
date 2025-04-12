@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nicole's Compliments</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      font-family: Arial, sans-serif;
+      color: #fff;
+      text-align: center;
+      user-select: none;
+    }
+    #message {
+      font-size: 2rem;
+      font-weight: bold;
+      padding: 20px;
+      border: 2px solid white;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    #credits {
+      position: absolute;
+      bottom: 10px;
+      font-size: 1rem;
+      font-weight: normal;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div id="message">Click anywhere to share love about Nicole!</div>
+  <div id="credits">Made by asad_sko</div>
+
+  <script>
+    const messages = [
+      "I love you, Nicole!",
+      "You are so beautiful, Nicole.",
+      "Nicole, your smile lights up the room!",
+      "You are amazing, Nicole!",
+      "Nicole, you have the kindest heart.",
+      "You take my breath away, Nicole!",
+      "Nicole, you are my everything.",
+      "Your beauty is unmatched, Nicole.",
+      "Nicole, you inspire me every day.",
+      "I adore you, Nicole!"
+    ];
+
+    const messageDiv = document.getElementById("message");
+
+    document.body.addEventListener("click", () => {
+      const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+      messageDiv.textContent = randomMessage;
+    });
+  </script>
+</body>
+</html>
