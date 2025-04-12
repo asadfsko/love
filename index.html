@@ -25,6 +25,7 @@
       border-radius: 10px;
       background: rgba(0, 0, 0, 0.3);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: color 0.5s, background 0.5s;
     }
     #credits {
       position: absolute;
@@ -33,31 +34,48 @@
       font-weight: normal;
       color: white;
     }
+    .red {
+      color: red !important;
+      background: rgba(255, 255, 255, 0.3) !important;
+    }
   </style>
 </head>
 <body>
-  <div id="message">Click anywhere to share love about Nicole!</div>
+  <div id="message">Tap anywhere to hear something sweet about Nicole!</div>
   <div id="credits">Made by asad_sko</div>
 
   <script>
     const messages = [
-      "I love you, Nicole!",
-      "You are so beautiful, Nicole.",
-      "Nicole, your smile lights up the room!",
-      "You are amazing, Nicole!",
-      "Nicole, you have the kindest heart.",
-      "You take my breath away, Nicole!",
-      "Nicole, you are my everything.",
-      "Your beauty is unmatched, Nicole.",
-      "Nicole, you inspire me every day.",
-      "I adore you, Nicole!"
+      "Nicole, you're like a finely crafted vase—delicate, elegant, and truly one of a kind.",
+      "I feel like a lump of clay, and you shape me into my best self, Nicole.",
+      "Nicole, your voice is like music—it stays in my heart long after I've heard it.",
+      "You have the kind of beauty poets dream about, Nicole.",
+      "Nicole, your laughter feels like sunshine warming my soul.",
+      "You’re like the glaze on pottery—making life brighter and more vibrant, Nicole.",
+      "Nicole, you make even the simplest moments magical.",
+      "Every time I see you, my heart skips a beat, Nicole.",
+      "You’re as timeless as an ancient piece of pottery, Nicole—so much beauty and history in one person.",
+      "Nicole, you're my muse and my masterpiece all at once."
     ];
 
+    let clickCount = 0;
     const messageDiv = document.getElementById("message");
 
     document.body.addEventListener("click", () => {
-      const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-      messageDiv.textContent = randomMessage;
+      clickCount++;
+      
+      if (clickCount % 10 === 0) {
+        messageDiv.textContent = "by asad this is embarrassing... but Nicole, you make life worth living.";
+        messageDiv.classList.add("red");
+        setTimeout(() => {
+          messageDiv.classList.remove("red");
+          const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+          messageDiv.textContent = randomMessage;
+        }, 2000);
+      } else {
+        const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+        messageDiv.textContent = randomMessage;
+      }
     });
   </script>
 </body>
